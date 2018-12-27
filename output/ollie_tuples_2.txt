@@ -1,0 +1,46 @@
+US President Donald Trump expressed anticipation toward his visit to South Korea in a tweet before taking off from Japan on Tuesday.
+No extractions found.
+
+(US President Donald Trump Twitter)“Getting ready to leave for South Korea and meetings with President Moon, a fine gentleman.
+No extractions found.
+
+We will figure it all out!” the president tweeted at 6 a.m.
+0.868: (the president; tweeted at; 6)
+
+The tweet followed one he posted just before, on his trip in Japan.
+0.785: (he; posted just before on; his trip)
+
+“My visit to Japan and friendship with PM Abe will yield many benefits, for our great Country.
+No extractions found.
+
+Massive military & energy orders happening+++!” he wrote.An active Twitter user, President Trump made 10 tweets just on his three-day trip in Japan, recording the moments -- from the welcoming ceremony to his official addresses and golf match with the Japanese Prime Minister Shinzo Abe.
+0.891: (President Trump; made 10 tweets on; his three-day trip)
+0.548: (he; wrote .An active Twitter user , President Trump made 10 tweets just on his three-day trip in Japan recording the moments -- from; the welcoming ceremony)
+
+President Trump is expected to land here at noon and kick off the two-day state visit to South Korea at the Camp Humphreys US military base in Pyeongtaek, Gyeonggi Province.
+No extractions found.
+
+He will also meet with South Korean President Moon Jae-in and give a speech at the National Assembly.
+No extractions found.
+
+(herim@heraldcorp.com)
+No extractions found.
+
+WASHINGTON -- US President Donald Trump is expected to visit China in the second half of this year, Chinese Ambassador to the United States Cui Tiankai was quoted as saying.Cui made the remark during a film screening event held at his embassy on Friday, saying the envisioned visit by Trump will be the most important event in relations between the two countries in the second half, according to the China Daily.The envoy did not mention any specific dates.US President Donald Trump (L) and Chinese President Xi Jinping (Yonhap)Trump agreed to visit China later this year when Chinese President Xi Jinping invited him during their first summit talks in Florida earlier this month.Japan's Mainichi Shimbun reported that Japan and the US are looking into the possibility of Trump visiting Tokyo when he travels to the Philippines for the East Asia Summit in November.US Vice President Mike Pence revealed Trump's travel plans when he visited the secretariat of the Association of Southeast Asian Nations in Jakarta.
+0.938: (the envisioned visit; will be the most important event in; relations)
+0.921: (the envisioned visit; will be the most important event between; the two countries)
+0.911: (the envisioned visit; will be the most important event in; the second half)
+0.9: (Chinese President Xi Jinping; invited him during; their first summit talks)
+0.848: (a film screening event; held at; his embassy)
+0.78: (a film screening event; held on; Friday)
+
+During the Asia trip, Trump will also visit Vietnam for an annual summit of the Asia-Pacific Economic Cooperation forum, Pence said.The EAS is scheduled for Nov. 13-14, while the APEC summit is set for Nov. 11-12.The
+0.903: (EAS; is scheduled for; Nov. 13-14)[enabler=while the APEC summit is set for Nov. 11-12.The]
+0.862: (the APEC summit; is set for; Nov. 11-12.The)
+
+announcement has raised speculation that Trump could also visit other Asian nations as part of the trip, such as China, Japan and South Korea.
+No extractions found.
+
+(Yonhap) 
+No extractions found.
+

@@ -1,0 +1,67 @@
+\documentclass[sigconf, natbib=false]{acmart}
+
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{csquotes}
+
+\usepackage{tikz}
+\usepackage{pgf-pie}
+
+\title{Text Mining Term Project Report}
+\subtitle{Trend Analysis and Issue Tracking}
+
+\author{Nguyen Van Giang}
+\affiliation{20184658}
+\email{dexter.nguyen7@kaist.ac.kr}
+
+\author{Oberwegner Phillip}
+\affiliation{20186509}
+\email{p.oberwegner@tum.de}
+
+\author{Kalkbrenner Lydia}
+\affiliation{20186481}
+\email{lydia.kalkbrenner@campus.tu-berlin.de}
+
+\settopmatter{printacmref=false} % don't print acm reference
+% removes footnote with conference information in first column
+\renewcommand\footnotetextcopyrightpermission[1]{}
+\pagestyle{plain} % removes running headers
+
+\startPage{1}
+
+\usepackage[style=ACM-reference-format,backend=biber]{biblatex}
+% \usepackage[style=authoryear,backend=biber]{biblatex}
+\addbibresource{report.bib}
+
+
+\begin{document}
+
+\begin{abstract}
+Natural Language Processing is a domain in computer science which comes under Artificial Intelligence. A number of concerns nowadays related to processing raw text to extract import information.
+Trend analysis and issue tracking are increasingly becoming promising tasks in NLP for a large amount of data generated day by day especially over the Internet and media. Given a huge corpus of articles, identifying outstanding relations and issues is not such easy work.
+We first find the top ten issues from a collection of Korean Herald Newspaper Articles from year 2015-2018 where extracted by K-Means Clustering. 
+Three topics were chosen to determine independent and inter-dependent events among articles of all years obtained by measuring cosine similarity using an issue description as query. 
+For each article of the chosen three issues, we extracted information about people, places and organizations involved in the newspaper article by Named Entity Recognition tools that we refined by adding rules.
+The evaluation section shows the performance of our model and further direction to achieve successes in these domains of NLP.
+\end{abstract}
+
+\maketitle
+\input{introduction}
+\input{problem_statement}
+\input{relevant_work}
+\input{dataset}
+\input{implementation}
+\input{evaluation}
+\input{result}
+\input{conclusion}
+\input{contributions}
+
+% \bibliographystyle{ACM-Reference-Format}
+% \bibliography{report}
+% \citestyle{acmauthoryear}
+\printbibliography
+\end{document}
+
+
+
+

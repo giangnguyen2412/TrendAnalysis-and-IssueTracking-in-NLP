@@ -1,0 +1,37 @@
+Descriptions of the clusters from top_ten_149(3)
+
+2015:
+- Cluster 0: Conflict: South Korea and the U.S. vs North Korea
+- Cluster 1: Persons that committed crimes
+- Cluster 2: Military tensions and actions, such as firing rocket or artillery attack, etc., between South Korea and North Korea
+- Cluster 3: International meetings between South Koreas leader, namely Park and leaders of other countries
+- Cluster 4: Court judgements where companies, the government or famous persons are involved
+- Cluster 5: Desired talks between North Korea and South Korea as well as peace between the two countries
+- Cluster 6: MERS, its outbreak, its curing and progression
+- Cluster 7: MERS, how it affected Korea and its politics
+- Cluster 8: Regional news about Seoul City, its transportation, etc.
+- Cluster 9: South Koreas and Japans relation and how they want to improve the realtion
+
+2016:
+- Cluster 0: North Koreas missile tests / launches and the underlying provocation
+- Cluster 1: Sanctions against North Korea
+- Cluster 2: Conflict with North Korea and how countries should react
+- Cluster 3: Court judgements and Parks impeachment
+- Cluster 4: North Korea and its leader Kim Jong-un
+- Cluster 5: THAAD, the antimissile system built by America and operating in South Korea to defend the country against North Korean missiles.
+- Cluster 6: Surveys
+- Cluster 7: Koreas political scandal about Choi Soon-sil and Koreas president Park
+- Cluster 8: Park and nomination of people
+- Cluster 9: Parks resignation and apology
+
+2017 / 2018:
+- Cluster 0: International news
+- Cluster 1: Heavy crimes and their judgement
+- Cluster 2: Koreas presidential race, who will be Koreas next president
+- Cluster 3: Parks impeachment
+- Cluster 4: Koreas parties
+- Cluster 5: After the presidential election, the formation of government and transferring Park's records to the state archives
+- Cluster 6: Park and the trial
+- Cluster 7: Korean parliament and ministers
+- Cluster 8: 'Comfort women' and sex slavery
+- Cluster 9: Diseases like TB, cancer, mental illnesses etc.

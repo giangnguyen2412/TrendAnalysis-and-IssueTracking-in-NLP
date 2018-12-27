@@ -1,0 +1,18 @@
+python==3.5.4
+cymem==2.0.2
+gensim==3.6.0
+matplotlib==1.5.1
+murmurhash==1.0.1
+nltk==3.4
+numexpr==2.4.3
+numpy==1.15.4
+pandas==0.23.4
+pathlib==1.0.1
+plotly==3.4.2
+regex==2018.1.10
+scikit-learn==0.17
+scipy==1.1.0
+spacy==2.0.18
+ollie==1.0.0(*)
+
+(*) JAVA package

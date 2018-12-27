@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module ner_spacy</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>ner_spacy</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href="."></a><br><a href="file:/home/dexter/text-mining/src/ner_spacy.py"></a></font></td></tr></table>
+    <p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="en_core_web_sm.html">en_core_web_sm</a><br>
+<a href="os.html">os</a><br>
+</td><td width="25%" valign=top><a href="pandas.html">pandas</a><br>
+<a href="pickle.html">pickle</a><br>
+</td><td width="25%" valign=top><a href="spacy.html">spacy</a><br>
+</td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-addToDict"><strong>addToDict</strong></a>(dictionary, term)</dt><dd><tt>Add&nbsp;a&nbsp;key&nbsp;to&nbsp;the&nbsp;dictionary&nbsp;to&nbsp;obtain&nbsp;the&nbsp;occurrence&nbsp;count<br>
+:param:<br>
+dictionary:&nbsp;a&nbsp;dictionary&nbsp;(person&nbsp;name&nbsp;dict,&nbsp;org&nbsp;dict&nbsp;...)&nbsp;(dict)<br>
+term:&nbsp;term&nbsp;to&nbsp;be&nbsp;add&nbsp;to&nbsp;dictionary&nbsp;(string)<br>
+:return:<br>
+None</tt></dd></dl>
+ <dl><dt><a name="-articleNER"><strong>articleNER</strong></a>(article)</dt><dd><tt>Extract&nbsp;NER&nbsp;list&nbsp;for&nbsp;an&nbsp;article&nbsp;string<br>
+:param:&nbsp;article&nbsp;:&nbsp;Body&nbsp;string&nbsp;of&nbsp;an&nbsp;article(string)<br>
+:retrun:&nbsp;entities,&nbsp;duplicates&nbsp;may&nbsp;occur&nbsp;because&nbsp;we&nbsp;use&nbsp;(list)</tt></dd></dl>
+ <dl><dt><a name="-extractNERSpacy"><strong>extractNERSpacy</strong></a>(inputDataFrame, indexList)</dt><dd><tt>Extract&nbsp;Name&nbsp;Entity&nbsp;using&nbsp;Spacy&nbsp;NER<br>
+:param:&nbsp;indexList:&nbsp;A&nbsp;list&nbsp;of&nbsp;two&nbsp;lists&nbsp;corresponding&nbsp;two&nbsp;topics.<br>
+Each&nbsp;list&nbsp;includes&nbsp;indices&nbsp;of&nbsp;articles&nbsp;in&nbsp;dataframe&nbsp;(list)<br>
+:param:&nbsp;inputDataFrame:&nbsp;Dataframe&nbsp;from&nbsp;raw&nbsp;dataset&nbsp;(dataframe)<br>
+:return:&nbsp;NER_list:&nbsp;A&nbsp;list&nbsp;of&nbsp;two&nbsp;dictionaries&nbsp;corresponding&nbsp;to&nbsp;two&nbsp;topics.<br>
+Each&nbsp;dictionary&nbsp;includes&nbsp;keys&nbsp;are&nbsp;indices&nbsp;of&nbsp;articles&nbsp;in&nbsp;dataframe,&nbsp;data&nbsp;is<br>
+a&nbsp;set&nbsp;of&nbsp;entities&nbsp;of&nbsp;with&nbsp;an&nbsp;index&nbsp;in&nbsp;dataframe&nbsp;(list)</tt></dd></dl>
+ <dl><dt><a name="-getArticleInfo"><strong>getArticleInfo</strong></a>(article)</dt><dd><tt>Extract&nbsp;NER&nbsp;list&nbsp;for&nbsp;an&nbsp;article&nbsp;string<br>
+:param:<br>
+article:&nbsp;Body&nbsp;string&nbsp;of&nbsp;an&nbsp;article&nbsp;(string)<br>
+:return:<br>
+people:&nbsp;person&nbsp;name&nbsp;dictionary&nbsp;(dict)<br>
+organizations:&nbsp;organization&nbsp;name&nbsp;dictionary&nbsp;(dict)<br>
+places:&nbsp;location&nbsp;name&nbsp;dictionary&nbsp;(dict)<br>
+dates:&nbsp;time&nbsp;dictionary&nbsp;(dict)</tt></dd></dl>
+</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+</body></html>

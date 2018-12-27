@@ -1,0 +1,13 @@
+\section{Introduction}
+As clustering is a widely used approach as an unsupervised learning approach to extract issues, there are many tools for clustering available. We chose K-Means clustering to tackle the extraction of the top ten issues of Korean Herald newspaper articles  using the TFIDF-vector-space model after text preprocessing.
+To find the top ten most mentioned topics, we assumed that an issue is important, if there are many newspaper articles about that issue, then ranking the issues by Cluster size was chosen as a naive approach, and could be improved by more deep analyses in the future.
+For the second part of our project, we wanted to extract events within a topic that have follow-up-events. We call the events that don't have follow-up events or are not follow-up events themselves independent events. For the extraction of events, we decided to keep all newspaper articles as events. Doing this we accepted the tradeoff between keeping articles about general discussions or multiple articles about the same events and simplicity. By analyzing triples obtained by Open Information Extraction, follow-up events were tracked by filtering the triples by keywords that imply follow-up events. The events were obtained by using cosine similarity among the chronologically following articles. 
+We tested the dependency tracking for three issues and decided to describe the results of all three of them instead of only two because they all show different behaviour of our algorithm as we describe in the evaluation.
+
+For tracking the events, we chose three issues to analyze, the reason that we choose three issues instead of two is that we observed and recognized all 3 following issues have the same information significance:
+\begin{enumerate}
+	\item{Impeachment of president Park}
+	\item{North Korea}
+	\item{MERS}
+\end{enumerate}
+As we didn't want to rely on the previous clustering result and also wanted to track dependencies over all years, we wrote an issue description and obtained articles that were most similar to the issue description by using Cosine Similarity and the LSA-model to approximate the TFIDF-vector-space model. The gensim library provided a good LSA-model as well as an implementation of cosine similarity.

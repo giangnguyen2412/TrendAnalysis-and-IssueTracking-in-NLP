@@ -1,0 +1,515 @@
+<HTML><HEAD></HEAD>
+<BODY>
+<TABLE cellSpacing=0 cellPadding=2 width="100%" summary=heading border=0>
+<TBODY>
+<TR bgColor=#7799ee>
+<TD vAlign=bottom>&nbsp;<BR><FONT color=#ffffff face="helvetica, arial">&nbsp;<BR><BIG><BIG><STRONG>clustering</STRONG></BIG></BIG></FONT></TD>
+<TD vAlign=bottom align=right><FONT color=#ffffff face="helvetica, arial"><A href="about:."></A><BR><A href="file:/home/dexter/text-mining/src/clustering.py"></A></FONT></TD></TR></TBODY></TABLE>
+<P></P>
+<P>
+<TABLE cellSpacing=0 cellPadding=2 width="100%" summary=section border=0>
+<TBODY>
+<TR bgColor=#aa55cc>
+<TD vAlign=bottom colSpan=3>&nbsp;<BR><FONT color=#ffffff face="helvetica, arial"><BIG><STRONG>Modules</STRONG></BIG></FONT></TD></TR>
+<TR>
+<TD bgColor=#aa55cc><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TT></TD>
+<TD>&nbsp;</TD>
+<TD width="100%">
+<TABLE width="100%" summary=list>
+<TBODY>
+<TR>
+<TD vAlign=top width="25%"><A href="about:collections.html">collections</A><BR></TD>
+<TD vAlign=top width="25%"><A href="about:numpy.html">numpy</A><BR></TD>
+<TD vAlign=top width="25%"><A href="about:pandas.html">pandas</A><BR></TD>
+<TD vAlign=top width="25%"></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE>
+<P>
+<TABLE cellSpacing=0 cellPadding=2 width="100%" summary=section border=0>
+<TBODY>
+<TR bgColor=#eeaa77>
+<TD vAlign=bottom colSpan=3>&nbsp;<BR><FONT color=#ffffff face="helvetica, arial"><BIG><STRONG>Functions</STRONG></BIG></FONT></TD></TR>
+<TR>
+<TD bgColor=#eeaa77><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TT></TD>
+<TD>&nbsp;</TD>
+<TD width="100%">
+<DL>
+<DT><A name=-computeTopTen><STRONG>computeTopTen</STRONG></A>(cluster_prediction, testing) 
+<DD><TT>Picks&nbsp;the&nbsp;top&nbsp;ten&nbsp;clusters&nbsp;(most&nbsp;articles&nbsp;in&nbsp;their&nbsp;cluster)&nbsp;that&nbsp;have&nbsp;less&nbsp;than&nbsp;150&nbsp;articles,<BR>sorted&nbsp;from&nbsp;most&nbsp;articles&nbsp;to&nbsp;least&nbsp;out&nbsp;of&nbsp;the&nbsp;kMeans.predict()&nbsp;result<BR>:param:<BR>cluster_prediction&nbsp;(array&nbsp;of&nbsp;integer):&nbsp;the&nbsp;result&nbsp;of&nbsp;the&nbsp;predict&nbsp;function&nbsp;of&nbsp;the&nbsp;kMeans&nbsp;algorithm<BR>testing&nbsp;(bool):&nbsp;wether&nbsp;the&nbsp;clustering&nbsp;gets&nbsp;tested&nbsp;or&nbsp;not<BR>:return:&nbsp;the&nbsp;top&nbsp;ten&nbsp;clusters&nbsp;sorted&nbsp;after&nbsp;the&nbsp;number&nbsp;of&nbsp;articles&nbsp;in&nbsp;each&nbsp;cluster,<BR>type:&nbsp;list&nbsp;of&nbsp;tuples(x,&nbsp;y)&nbsp;of&nbsp;integers</TT></DD></DL>
+<DL>
+<DT><A name=-evaluateClusterParameter><STRONG>evaluateClusterParameter</STRONG></A>(file, cluster, headings) 
+<DD><TT>Prints&nbsp;out&nbsp;the&nbsp;result&nbsp;of&nbsp;the&nbsp;clustering&nbsp;-&nbsp;the&nbsp;titles&nbsp;belonging&nbsp;to&nbsp;each&nbsp;cluster&nbsp;and<BR>the&nbsp;sum&nbsp;of&nbsp;squared&nbsp;distances&nbsp;of&nbsp;the&nbsp;articles&nbsp;to&nbsp;their&nbsp;closest&nbsp;cluster&nbsp;center<BR>:param:<BR>cluster&nbsp;(array&nbsp;like):&nbsp;the&nbsp;result&nbsp;of&nbsp;the&nbsp;clustering<BR>headings&nbsp;(array&nbsp;of&nbsp;sets):&nbsp;the&nbsp;titles&nbsp;of&nbsp;the&nbsp;articles&nbsp;belonging&nbsp;to&nbsp;the&nbsp;i-th&nbsp;cluster<BR>:return:&nbsp;nothing</TT></DD></DL>
+<DL>
+<DT><A name=-getArticleHeadings><STRONG>getArticleHeadings</STRONG></A>(cluster_prediction, number_clusters, dataset) 
+<DD><TT>Sortes&nbsp;the&nbsp;titles&nbsp;of&nbsp;the&nbsp;articles&nbsp;to&nbsp;the&nbsp;clusters&nbsp;in&nbsp;which&nbsp;the&nbsp;articles&nbsp;belong<BR>:param:<BR>cluster_prediction&nbsp;(array&nbsp;of&nbsp;integer):&nbsp;the&nbsp;result&nbsp;of&nbsp;the&nbsp;predict&nbsp;function&nbsp;of&nbsp;the&nbsp;kMeans&nbsp;algorithm<BR>number_custers&nbsp;(integer):&nbsp;the&nbsp;number&nbsp;of&nbsp;clusters&nbsp;which&nbsp;were&nbsp;created<BR>dataset&nbsp;(table):&nbsp;the&nbsp;raw&nbsp;data&nbsp;which&nbsp;was&nbsp;the&nbsp;foundation&nbsp;of&nbsp;preprocessing,&nbsp;term&nbsp;weighting&nbsp;and&nbsp;clustering<BR>:return:&nbsp;the&nbsp;titles&nbsp;of&nbsp;articles&nbsp;grouped&nbsp;into&nbsp;the&nbsp;cluster&nbsp;in&nbsp;which&nbsp;the&nbsp;articles&nbsp;belong,<BR>type:&nbsp;array&nbsp;of&nbsp;sets&nbsp;of&nbsp;strings</TT></DD></DL>
+<DL>
+<DT><A name=-getTopTenHeadings><STRONG>getTopTenHeadings</STRONG></A>(cluster_headings, top_ten) 
+<DD><TT>Reduces&nbsp;the&nbsp;sets&nbsp;of&nbsp;titles&nbsp;of&nbsp;the&nbsp;clusters&nbsp;to&nbsp;the&nbsp;top&nbsp;ten&nbsp;clusters<BR>:param:<BR>cluster_headings&nbsp;(array&nbsp;of&nbsp;sets&nbsp;of&nbsp;strings):&nbsp;the&nbsp;titles&nbsp;matched&nbsp;to&nbsp;the&nbsp;clusters<BR>top_ten&nbsp;(array&nbsp;of&nbsp;tuples(x,&nbsp;y)&nbsp;of&nbsp;integers):&nbsp;the&nbsp;sorted&nbsp;indices&nbsp;of&nbsp;the&nbsp;top&nbsp;ten&nbsp;clusters<BR>:return:&nbsp;the&nbsp;titles&nbsp;belonging&nbsp;to&nbsp;the&nbsp;top&nbsp;ten&nbsp;clusters&nbsp;matched&nbsp;to&nbsp;their&nbsp;cluster,<BR>type:&nbsp;array&nbsp;of&nbsp;sets&nbsp;of&nbsp;strings</TT></DD></DL>
+<DL>
+<DT><A name=-getTopTenVocabulary><STRONG>getTopTenVocabulary</STRONG></A>(cluster_vocabulary, top_ten) 
+<DD><TT>Reduces&nbsp;the&nbsp;sets&nbsp;of&nbsp;terms&nbsp;of&nbsp;the&nbsp;clusters&nbsp;to&nbsp;the&nbsp;top&nbsp;ten&nbsp;clusters<BR>:param:<BR>cluster_vocabulary&nbsp;(array&nbsp;of&nbsp;sets&nbsp;of&nbsp;strings):&nbsp;the&nbsp;terms&nbsp;matched&nbsp;to&nbsp;their&nbsp;clusters<BR>top_ten&nbsp;(array&nbsp;of&nbsp;tuples(x,&nbsp;y)&nbsp;of&nbsp;integers):&nbsp;the&nbsp;sorted&nbsp;indices&nbsp;of&nbsp;the&nbsp;top&nbsp;ten&nbsp;clusters<BR>:return:&nbsp;the&nbsp;terms&nbsp;belonging&nbsp;to&nbsp;the&nbsp;top&nbsp;ten&nbsp;clusters&nbsp;matched&nbsp;to&nbsp;their&nbsp;clusterm,<BR>type:&nbsp;array&nbsp;of&nbsp;sets&nbsp;of&nbsp;strings</TT></DD></DL>
+<DL>
+<DT><A name=-getVocabularyOfClusters><STRONG>getVocabularyOfClusters</STRONG></A>(cluster_prediction, number_clusters, tf_idf_matrix, selected_voc) 
+<DD><TT>Sortes&nbsp;the&nbsp;terms&nbsp;of&nbsp;the&nbsp;articles&nbsp;to&nbsp;the&nbsp;clusters&nbsp;in&nbsp;which&nbsp;the&nbsp;articles&nbsp;belong<BR>:param:<BR>cluster_prediction&nbsp;(array&nbsp;of&nbsp;integer):&nbsp;the&nbsp;result&nbsp;of&nbsp;the&nbsp;predict&nbsp;function&nbsp;of&nbsp;the&nbsp;kMeans&nbsp;algorithm<BR>number_custers&nbsp;(integer):&nbsp;the&nbsp;number&nbsp;of&nbsp;clusters&nbsp;which&nbsp;were&nbsp;created<BR>tf_idf_matrix&nbsp;(sparse&nbsp;matrix&nbsp;of&nbsp;floats):&nbsp;the&nbsp;term-document&nbsp;matrix,&nbsp;result&nbsp;of&nbsp;the&nbsp;term&nbsp;weighting<BR>slected_voc&nbsp;(array&nbsp;of&nbsp;strings):&nbsp;the&nbsp;terms&nbsp;which&nbsp;are&nbsp;the&nbsp;foundation&nbsp;of&nbsp;the&nbsp;tf-idf&nbsp;matrix,&nbsp;result&nbsp;of&nbsp;the&nbsp;term&nbsp;weighting<BR>:return:&nbsp;the&nbsp;terms&nbsp;of&nbsp;the&nbsp;articles&nbsp;grouped&nbsp;into&nbsp;the&nbsp;cluster&nbsp;in&nbsp;which&nbsp;the&nbsp;articles&nbsp;belong,<BR>type:&nbsp;array&nbsp;of&nbsp;sets&nbsp;of&nbsp;strings</TT></DD></DL>
+<DL>
+<DT><A name=-kMeansClustering><STRONG>kMeansClustering</STRONG></A>(num_clusters, tf_idf_matrix, max_iterations, selected_voc, dataset, testing) 
+<DD><TT>The&nbsp;main&nbsp;function&nbsp;of&nbsp;clustering,&nbsp;controlls&nbsp;the&nbsp;clustering&nbsp;flow<BR>:param:<BR>num_clusters&nbsp;(integer):&nbsp;the&nbsp;number&nbsp;of&nbsp;clusters&nbsp;to&nbsp;be&nbsp;created<BR>tf_idf_matrix&nbsp;(sparse&nbsp;matrix&nbsp;of&nbsp;floats):&nbsp;the&nbsp;term-document&nbsp;matrix,&nbsp;result&nbsp;of&nbsp;the&nbsp;term&nbsp;weighting<BR>max_iterations&nbsp;(integer):&nbsp;the&nbsp;maximum&nbsp;number&nbsp;of&nbsp;iterations&nbsp;the&nbsp;k-means&nbsp;algorithm&nbsp;can&nbsp;make<BR>-&gt;&nbsp;more&nbsp;iterations,&nbsp;the&nbsp;longer&nbsp;it&nbsp;takes&nbsp;to&nbsp;compute&nbsp;but&nbsp;the&nbsp;results&nbsp;are&nbsp;normaly&nbsp;better<BR>selected_voc&nbsp;(array&nbsp;of&nbsp;strings):&nbsp;the&nbsp;terms&nbsp;which&nbsp;are&nbsp;the&nbsp;foundation&nbsp;of&nbsp;the&nbsp;tf-idf&nbsp;matrix,&nbsp;result&nbsp;of&nbsp;the&nbsp;term&nbsp;weighting<BR>dataset&nbsp;(table):&nbsp;the&nbsp;raw&nbsp;data&nbsp;which&nbsp;was&nbsp;the&nbsp;foundation&nbsp;of&nbsp;preprocessing,&nbsp;term&nbsp;weighting&nbsp;and&nbsp;clustering<BR>testing&nbsp;(bool):&nbsp;wether&nbsp;the&nbsp;clustering&nbsp;gets&nbsp;tested&nbsp;or&nbsp;not<BR>:return:&nbsp;the&nbsp;indices&nbsp;of&nbsp;the&nbsp;top&nbsp;ten&nbsp;clusters,&nbsp;sorted&nbsp;after&nbsp;the&nbsp;number&nbsp;of&nbsp;articles&nbsp;in&nbsp;them,<BR>the&nbsp;titles&nbsp;of&nbsp;the&nbsp;top&nbsp;ten&nbsp;clusters&nbsp;and&nbsp;the&nbsp;terms&nbsp;of&nbsp;the&nbsp;top&nbsp;ten&nbsp;clusters,<BR>type:&nbsp;array&nbsp;of&nbsp;tuples(x,&nbsp;y)&nbsp;of&nbsp;integers,&nbsp;array&nbsp;of&nbsp;sets&nbsp;of&nbsp;strings,&nbsp;array&nbsp;of&nbsp;sets&nbsp;of&nbsp;strings</TT></DD></DL>
+<DL>
+<DT><A name=-performClustering><STRONG>performClustering</STRONG></A>(num_clusters, tf_idf_matrix, max_iterations) 
+<DD><TT>Performs&nbsp;the&nbsp;k-means&nbsp;clustering&nbsp;algorithm<BR>:param:<BR>num_clusters&nbsp;(integer):&nbsp;the&nbsp;number&nbsp;of&nbsp;clusters&nbsp;to&nbsp;be&nbsp;created<BR>tf_idf_matrix&nbsp;(sparse&nbsp;matrix&nbsp;of&nbsp;floats):&nbsp;the&nbsp;term-document&nbsp;matrix,&nbsp;result&nbsp;of&nbsp;the&nbsp;term&nbsp;weighting<BR>max_iterations&nbsp;(integer):&nbsp;the&nbsp;maximum&nbsp;number&nbsp;of&nbsp;iterations&nbsp;the&nbsp;k-means&nbsp;algorithm&nbsp;can&nbsp;make<BR>-&gt;&nbsp;more&nbsp;iterations,&nbsp;the&nbsp;longer&nbsp;it&nbsp;takes&nbsp;to&nbsp;compute&nbsp;but&nbsp;the&nbsp;results&nbsp;are&nbsp;normaly&nbsp;better<BR>:return:&nbsp;the&nbsp;result&nbsp;of&nbsp;the&nbsp;k-means&nbsp;clustering,<BR>type:&nbsp;array&nbsp;like</TT></DD></DL>
+<DL>
+<DT><A name=-predictCluster><STRONG>predictCluster</STRONG></A>(cluster, tf_idf_matrix) 
+<DD><TT>Retrieves&nbsp;the&nbsp;result&nbsp;of&nbsp;the&nbsp;clustering,&nbsp;the&nbsp;indicies&nbsp;of&nbsp;the&nbsp;cluster&nbsp;each&nbsp;article&nbsp;belongs&nbsp;to<BR>:param:<BR>cluster&nbsp;(array&nbsp;like):&nbsp;the&nbsp;result&nbsp;of&nbsp;the&nbsp;k-means&nbsp;clustering&nbsp;algorithm<BR>tf_idf_matrix&nbsp;(sparse&nbsp;matrix&nbsp;of&nbsp;floats):&nbsp;the&nbsp;term-document&nbsp;matrix,&nbsp;result&nbsp;of&nbsp;the&nbsp;term&nbsp;weighting<BR>:return:&nbsp;the&nbsp;indices&nbsp;of&nbsp;the&nbsp;clusters&nbsp;each&nbsp;article&nbsp;belongs&nbsp;to,<BR>type:&nbsp;array&nbsp;of&nbsp;integers</TT></DD></DL>
+<DL>
+<DT><A name=-printTopTen><STRONG>printTopTen</STRONG></A>(to_print) 
+<DD><TT>Prints&nbsp;either&nbsp;the&nbsp;titles&nbsp;or&nbsp;terms&nbsp;of&nbsp;the&nbsp;top&nbsp;ten&nbsp;clusters<BR>:param:<BR>to_print&nbsp;(array):&nbsp;either&nbsp;the&nbsp;titles&nbsp;or&nbsp;terms&nbsp;of&nbsp;the&nbsp;top&nbsp;ten&nbsp;clusters&nbsp;to&nbsp;be&nbsp;visualized&nbsp;on&nbsp;the&nbsp;screen<BR>:return:&nbsp;nothing</TT></DD></DL>
+<DL>
+<DT><A name=-printTopTenToFile><STRONG>printTopTenToFile</STRONG></A>(file, headings, vocabulary) 
+<DD><TT>Writes&nbsp;the&nbsp;headings&nbsp;and&nbsp;vocabulary&nbsp;of&nbsp;the&nbsp;top&nbsp;ten&nbsp;clusters&nbsp;to&nbsp;file<BR>:param:<BR>file&nbsp;(file&nbsp;descriptor):&nbsp;the&nbsp;file&nbsp;describtor&nbsp;in&nbsp;which&nbsp;file&nbsp;should&nbsp;be&nbsp;written<BR>headings&nbsp;(array):&nbsp;the&nbsp;headings&nbsp;of&nbsp;the&nbsp;top&nbsp;ten&nbsp;clusters<BR>vocabulary&nbsp;(array):&nbsp;the&nbsp;vocabulary&nbsp;of&nbsp;the&nbsp;top&nbsp;ten&nbsp;clusters<BR>:return:&nbsp;nothing</TT></DD></DL>
+<DL>
+<DT><A name=-testKMeansClustering><STRONG>testKMeansClustering</STRONG></A>(tf_idf_matrix, max_iterations, dataset) 
+<DD><TT>Tests&nbsp;in&nbsp;a&nbsp;loop&nbsp;the&nbsp;best&nbsp;parameter&nbsp;for&nbsp;k&nbsp;for&nbsp;the&nbsp;k-means&nbsp;clustering&nbsp;and&nbsp;writes&nbsp;the&nbsp;results&nbsp;to&nbsp;the&nbsp;file&nbsp;evaluate.txt<BR>:param:<BR>tf_idf_matrix&nbsp;(sparse&nbsp;matrix&nbsp;of&nbsp;floats):&nbsp;the&nbsp;term-document&nbsp;matrix,&nbsp;result&nbsp;of&nbsp;the&nbsp;term&nbsp;weighting<BR>max_iterations&nbsp;(integer):&nbsp;the&nbsp;maximum&nbsp;number&nbsp;of&nbsp;iterations&nbsp;the&nbsp;k-means&nbsp;algorithm&nbsp;can&nbsp;make&nbsp;-&gt;&nbsp;more&nbsp;iterations,<BR>the&nbsp;longer&nbsp;it&nbsp;takes&nbsp;to&nbsp;compute&nbsp;but&nbsp;the&nbsp;results&nbsp;are&nbsp;normaly&nbsp;better<BR>dataset&nbsp;(table):&nbsp;the&nbsp;raw&nbsp;data&nbsp;which&nbsp;was&nbsp;the&nbsp;foundation&nbsp;of&nbsp;preprocessing,&nbsp;term&nbsp;weighting&nbsp;and&nbsp;clustering<BR>:return:&nbsp;nothing</TT></DD></DL></TD></TR></TBODY></TABLE></P>
+<TABLE cellSpacing=0 cellPadding=2 width="100%" summary=heading border=0>
+<TBODY>
+<TR bgColor=#7799ee>
+<TD vAlign=bottom>&nbsp;<BR><FONT color=#ffffff face="helvetica, arial">&nbsp;<BR><BIG><BIG><STRONG>inter_dependency</STRONG></BIG></BIG></FONT></TD>
+<TD vAlign=bottom align=right><FONT color=#ffffff face="helvetica, arial"><A href="about:."></A><BR><A href="file:/home/dexter/text-mining/src/inter_dependency.py"></A></FONT></TD></TR></TBODY></TABLE>
+<P></P>
+<P>
+<TABLE cellSpacing=0 cellPadding=2 width="100%" summary=section border=0>
+<TBODY>
+<TR bgColor=#aa55cc>
+<TD vAlign=bottom colSpan=3>&nbsp;<BR><FONT color=#ffffff face="helvetica, arial"><BIG><STRONG>Modules</STRONG></BIG></FONT></TD></TR>
+<TR>
+<TD bgColor=#aa55cc><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TT></TD>
+<TD>&nbsp;</TD>
+<TD width="100%">
+<TABLE width="100%" summary=list>
+<TBODY>
+<TR>
+<TD vAlign=top width="25%"><A href="about:copy.html">copy</A><BR><A href="about:gensim.corpora.html">gensim.corpora</A><BR><A href="about:en_core_web_sm.html">en_core_web_sm</A><BR><A href="about:glob.html">glob</A><BR></TD>
+<TD vAlign=top width="25%"><A href="about:itertools.html">itertools</A><BR><A href="about:json.html">json</A><BR><A href="about:gensim.models.html">gensim.models</A><BR><A href="about:nltk.html">nltk</A><BR></TD>
+<TD vAlign=top width="25%"><A href="about:numpy.html">numpy</A><BR><A href="about:os.html">os</A><BR><A href="about:pandas.html">pandas</A><BR><A href="about:pandas.html">pandas</A><BR></TD>
+<TD vAlign=top width="25%"><A href="about:pickle.html">pickle</A><BR><A href="about:gensim.similarities.html">gensim.similarities</A><BR><A href="about:spacy.html">spacy</A><BR></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE>
+<P>
+<TABLE cellSpacing=0 cellPadding=2 width="100%" summary=section border=0>
+<TBODY>
+<TR bgColor=#eeaa77>
+<TD vAlign=bottom colSpan=3>&nbsp;<BR><FONT color=#ffffff face="helvetica, arial"><BIG><STRONG>Functions</STRONG></BIG></FONT></TD></TR>
+<TR>
+<TD bgColor=#eeaa77><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TT></TD>
+<TD>&nbsp;</TD>
+<TD width="100%">
+<DL>
+<DT><A name=-concatenatePlan><STRONG>concatenatePlan</STRONG></A>(triple) 
+<DD><TT>Concatenate&nbsp;triple&nbsp;to&nbsp;form&nbsp;a&nbsp;similarity&nbsp;query<BR>:param:<BR>triple:&nbsp;entities&nbsp;with&nbsp;relation&nbsp;"plan&nbsp;to"&nbsp;or&nbsp;"plans&nbsp;to"&nbsp;(tuple)<BR>:return:<BR>query:&nbsp;concatenated&nbsp;string&nbsp;without&nbsp;"plan&nbsp;to"&nbsp;or&nbsp;"plans&nbsp;to"&nbsp;(string)</TT></DD></DL>
+<DL>
+<DT><A name=-filterPlan><STRONG>filterPlan</STRONG></A>(triples) 
+<DD><TT>Filter&nbsp;tuples&nbsp;that&nbsp;contain&nbsp;"plan&nbsp;to<BR>:param:<BR>triples:&nbsp;input&nbsp;triples&nbsp;to&nbsp;be&nbsp;processed&nbsp;(list)<BR>:return:<BR>plan_triples:&nbsp;triples&nbsp;that&nbsp;contain&nbsp;"plan&nbsp;to"</TT></DD></DL>
+<DL>
+<DT><A name=-getConfirmation><STRONG>getConfirmation</STRONG></A>(index, similar_idx, data) 
+<DD><TT>Confirm&nbsp;with&nbsp;user&nbsp;if&nbsp;articles&nbsp;are&nbsp;linked,&nbsp;this&nbsp;function&nbsp;for&nbsp;testing,&nbsp;not&nbsp;running<BR>:param:<BR>data:&nbsp;input&nbsp;dataset&nbsp;(dataframe)<BR>index:&nbsp;index&nbsp;of&nbsp;current&nbsp;article&nbsp;(int)<BR>similar_idx:&nbsp;index&nbsp;of&nbsp;similar&nbsp;article&nbsp;(int)<BR>:return:<BR>confirmation:&nbsp;returns&nbsp;1&nbsp;if&nbsp;articles&nbsp;are&nbsp;linked,&nbsp;0&nbsp;otherwise</TT></DD></DL>
+<DL>
+<DT><A name=-getInterdependent><STRONG>getInterdependent</STRONG></A>(data, indexList, dict_list) 
+<DD><TT>Measure&nbsp;interdependency&nbsp;of&nbsp;articles&nbsp;of&nbsp;one&nbsp;topic<BR>:param:<BR>data:&nbsp;input&nbsp;dataset&nbsp;(dataframe)<BR>index_list:&nbsp;indices&nbsp;of&nbsp;articles&nbsp;related&nbsp;to&nbsp;one&nbsp;topic&nbsp;(list)<BR>topic_idx:&nbsp;index&nbsp;of&nbsp;the&nbsp;topic<BR>:return:<BR>linked:&nbsp;interdependent&nbsp;article&nbsp;tuples&nbsp;(list&nbsp;of&nbsp;tuples)</TT></DD></DL></TD></TR></TBODY></TABLE>
+<P>
+<TABLE cellSpacing=0 cellPadding=2 width="100%" summary=section border=0>
+<TBODY>
+<TR bgColor=#55aa55>
+
+<P></P>
+<P></P>
+<P></P></TABLE></P>
+<TABLE cellSpacing=0 cellPadding=2 width="100%" summary=heading border=0>
+<TBODY>
+<TR bgColor=#7799ee>
+<TD vAlign=bottom>&nbsp;<BR><FONT color=#ffffff face="helvetica, arial">&nbsp;<BR><BIG><BIG><STRONG>ner_spacy</STRONG></BIG></BIG></FONT></TD>
+<TD vAlign=bottom align=right><FONT color=#ffffff face="helvetica, arial"><A href="about:."></A><BR><A href="file:/home/dexter/text-mining/src/ner_spacy.py"></A></FONT></TD></TR></TBODY></TABLE>
+<P>
+<P>
+<TABLE cellSpacing=0 cellPadding=2 width="100%" summary=section border=0>
+<TBODY>
+<TR bgColor=#aa55cc>
+<TD vAlign=bottom colSpan=3>&nbsp;<BR><FONT color=#ffffff face="helvetica, arial"><BIG><STRONG>Modules</STRONG></BIG></FONT></TD></TR>
+<TR>
+<TD bgColor=#aa55cc><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TT></TD>
+<TD>&nbsp;</TD>
+<TD width="100%">
+<TABLE width="100%" summary=list>
+<TBODY>
+<TR>
+<TD vAlign=top width="25%"><A href="about:en_core_web_sm.html">en_core_web_sm</A><BR><A href="about:os.html">os</A><BR></TD>
+<TD vAlign=top width="25%"><A href="about:pandas.html">pandas</A><BR><A href="about:pickle.html">pickle</A><BR></TD>
+<TD vAlign=top width="25%"><A href="about:spacy.html">spacy</A><BR></TD>
+<TD vAlign=top width="25%"></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE>
+<P>
+<TABLE cellSpacing=0 cellPadding=2 width="100%" summary=section border=0>
+<TBODY>
+<TR bgColor=#eeaa77>
+<TD vAlign=bottom colSpan=3>&nbsp;<BR><FONT color=#ffffff face="helvetica, arial"><BIG><STRONG>Functions</STRONG></BIG></FONT></TD></TR>
+<TR>
+<TD bgColor=#eeaa77><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TT></TD>
+<TD>&nbsp;</TD>
+<TD width="100%">
+<DL>
+<DT><A name=-addToDict><STRONG>addToDict</STRONG></A>(dictionary, term) 
+<DD><TT>Add&nbsp;a&nbsp;key&nbsp;to&nbsp;the&nbsp;dictionary&nbsp;to&nbsp;obtain&nbsp;the&nbsp;occurrence&nbsp;count<BR>:param:<BR>dictionary:&nbsp;a&nbsp;dictionary&nbsp;(person&nbsp;name&nbsp;dict,&nbsp;org&nbsp;dict&nbsp;...)&nbsp;(dict)<BR>term:&nbsp;term&nbsp;to&nbsp;be&nbsp;add&nbsp;to&nbsp;dictionary&nbsp;(string)<BR>:return:<BR>None</TT></DD></DL>
+<DL>
+<DT><A name=-articleNER><STRONG>articleNER</STRONG></A>(article) 
+<DD><TT>Extract&nbsp;NER&nbsp;list&nbsp;for&nbsp;an&nbsp;article&nbsp;string<BR>:param:&nbsp;article&nbsp;:&nbsp;Body&nbsp;string&nbsp;of&nbsp;an&nbsp;article(string)<BR>:retrun:&nbsp;entities,&nbsp;duplicates&nbsp;may&nbsp;occur&nbsp;because&nbsp;we&nbsp;use&nbsp;(list)</TT></DD></DL>
+<DL>
+<DT><A name=-extractNERSpacy><STRONG>extractNERSpacy</STRONG></A>(inputDataFrame, indexList) 
+<DD><TT>Extract&nbsp;Name&nbsp;Entity&nbsp;using&nbsp;Spacy&nbsp;NER<BR>:param:&nbsp;indexList:&nbsp;A&nbsp;list&nbsp;of&nbsp;two&nbsp;lists&nbsp;corresponding&nbsp;two&nbsp;topics.<BR>Each&nbsp;list&nbsp;includes&nbsp;indices&nbsp;of&nbsp;articles&nbsp;in&nbsp;dataframe&nbsp;(list)<BR>:param:&nbsp;inputDataFrame:&nbsp;Dataframe&nbsp;from&nbsp;raw&nbsp;dataset&nbsp;(dataframe)<BR>:return:&nbsp;NER_list:&nbsp;A&nbsp;list&nbsp;of&nbsp;two&nbsp;dictionaries&nbsp;corresponding&nbsp;to&nbsp;two&nbsp;topics.<BR>Each&nbsp;dictionary&nbsp;includes&nbsp;keys&nbsp;are&nbsp;indices&nbsp;of&nbsp;articles&nbsp;in&nbsp;dataframe,&nbsp;data&nbsp;is<BR>a&nbsp;set&nbsp;of&nbsp;entities&nbsp;of&nbsp;with&nbsp;an&nbsp;index&nbsp;in&nbsp;dataframe&nbsp;(list)</TT></DD></DL>
+<DL>
+<DT><A name=-getArticleInfo><STRONG>getArticleInfo</STRONG></A>(article) 
+<DD><TT>Extract&nbsp;NER&nbsp;list&nbsp;for&nbsp;an&nbsp;article&nbsp;string<BR>:param:<BR>article:&nbsp;Body&nbsp;string&nbsp;of&nbsp;an&nbsp;article&nbsp;(string)<BR>:return:<BR>people:&nbsp;person&nbsp;name&nbsp;dictionary&nbsp;(dict)<BR>organizations:&nbsp;organization&nbsp;name&nbsp;dictionary&nbsp;(dict)<BR>places:&nbsp;location&nbsp;name&nbsp;dictionary&nbsp;(dict)<BR>dates:&nbsp;time&nbsp;dictionary&nbsp;(dict)</TT></DD></DL></TD></TR></TBODY></TABLE>
+<P>
+<TABLE cellSpacing=0 cellPadding=2 width="100%" summary=section border=0>
+<TBODY>
+<TR bgColor=#55aa55>
+
+<P></P>
+<P></P>
+<P></P></TABLE></P>
+<TABLE cellSpacing=0 cellPadding=2 width="100%" summary=heading border=0>
+<TBODY>
+<TR bgColor=#7799ee>
+<TD vAlign=bottom>&nbsp;<BR><FONT color=#ffffff face="helvetica, arial">&nbsp;<BR><BIG><BIG><STRONG>openie_ollie</STRONG></BIG></BIG></FONT></TD>
+<TD vAlign=bottom align=right><FONT color=#ffffff face="helvetica, arial"><A href="about:."></A><BR><A href="file:/home/dexter/text-mining/src/openie_ollie.py"></A></FONT></TD></TR></TBODY></TABLE>
+<P>
+<P>
+<TABLE cellSpacing=0 cellPadding=2 width="100%" summary=section border=0>
+<TBODY>
+<TR bgColor=#aa55cc>
+<TD vAlign=bottom colSpan=3>&nbsp;<BR><FONT color=#ffffff face="helvetica, arial"><BIG><STRONG>Modules</STRONG></BIG></FONT></TD></TR>
+<TR>
+<TD bgColor=#aa55cc><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TT></TD>
+<TD>&nbsp;</TD>
+<TD width="100%">
+<TABLE width="100%" summary=list>
+<TBODY>
+<TR>
+<TD vAlign=top width="25%"><A href="about:copy.html">copy</A><BR><A href="about:gensim.corpora.html">gensim.corpora</A><BR><A href="about:en_core_web_sm.html">en_core_web_sm</A><BR><A href="about:glob.html">glob</A><BR></TD>
+<TD vAlign=top width="25%"><A href="about:itertools.html">itertools</A><BR><A href="about:gensim.models.html">gensim.models</A><BR><A href="about:nltk.html">nltk</A><BR><A href="about:numpy.html">numpy</A><BR></TD>
+<TD vAlign=top width="25%"><A href="about:os.html">os</A><BR><A href="about:pandas.html">pandas</A><BR><A href="about:pandas.html">pandas</A><BR><A href="about:pickle.html">pickle</A><BR></TD>
+<TD vAlign=top width="25%"><A href="about:gensim.similarities.html">gensim.similarities</A><BR><A href="about:spacy.html">spacy</A><BR></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE>
+<P>
+<TABLE cellSpacing=0 cellPadding=2 width="100%" summary=section border=0>
+<TBODY>
+<TR bgColor=#eeaa77>
+<TD vAlign=bottom colSpan=3>&nbsp;<BR><FONT color=#ffffff face="helvetica, arial"><BIG><STRONG>Functions</STRONG></BIG></FONT></TD></TR>
+<TR>
+<TD bgColor=#eeaa77><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TT></TD>
+<TD>&nbsp;</TD>
+<TD width="100%">
+<DL>
+<DT><A name=-extractInforOllie><STRONG>extractInforOllie</STRONG></A>(dataset, indexList, topic_idx) 
+<DD><TT>Open&nbsp;IE&nbsp;with&nbsp;OLLIE,&nbsp;postprocessing&nbsp;output&nbsp;of&nbsp;OLLIE&nbsp;also<BR>:param:&nbsp;dataset:&nbsp;Dataframe&nbsp;from&nbsp;raw&nbsp;dataset&nbsp;(dataframe)<BR>:param:&nbsp;indexList:&nbsp;A&nbsp;list&nbsp;of&nbsp;indices&nbsp;of&nbsp;a&nbsp;topic.<BR>:param:&nbsp;topic_idx:&nbsp;Index&nbsp;of&nbsp;topic.&nbsp;0&nbsp;or&nbsp;1.<BR>Each&nbsp;list&nbsp;includes&nbsp;indices&nbsp;of&nbsp;articles&nbsp;in&nbsp;dataframe&nbsp;(list)<BR>:return:&nbsp;lines_list:&nbsp;A&nbsp;list&nbsp;including&nbsp;postprocessed&nbsp;data&nbsp;from&nbsp;OLLIE<BR>:return:&nbsp;dict_list:&nbsp;A&nbsp;list&nbsp;-&gt;&nbsp;dictionaries&nbsp;-&gt;&nbsp;a&nbsp;list&nbsp;-&gt;&nbsp;a&nbsp;list</TT></DD></DL>
+<DL>
+<DT><A name=-postprocessOllieOutput><STRONG>postprocessOllieOutput</STRONG></A>(path, idx) 
+<DD><TT>Read&nbsp;a&nbsp;file&nbsp;line&nbsp;by&nbsp;line&nbsp;and&nbsp;do&nbsp;postprocessing&nbsp;on&nbsp;Ollie&nbsp;output<BR>:param:&nbsp;filePath&nbsp;(string)<BR>:param:&nbsp;idx:&nbsp;index&nbsp;of&nbsp;topic.&nbsp;We&nbsp;are&nbsp;having&nbsp;two&nbsp;topics,&nbsp;idx&nbsp;is&nbsp;0&nbsp;or&nbsp;1&nbsp;(int)<BR>:return:&nbsp;lines:&nbsp;a&nbsp;list&nbsp;of&nbsp;processed&nbsp;lines&nbsp;containing&nbsp;only&nbsp;enablers&nbsp;tuples&nbsp;(list)<BR>:return:&nbsp;dictionary:&nbsp;a&nbsp;dictionary&nbsp;with&nbsp;key&nbsp;is&nbsp;article&nbsp;index.&nbsp;Each&nbsp;entry&nbsp;of<BR>the&nbsp;dictionary&nbsp;is&nbsp;a&nbsp;list&nbsp;of&nbsp;ollie&nbsp;tuples&nbsp;formatted&nbsp;(ei,r,ej,enabler).&nbsp;A&nbsp;dictionary&nbsp;of&nbsp;lists&nbsp;of&nbsp;lists</TT></DD></DL>
+<DL>
+<DT><A name=-removeDuplicateTuple><STRONG>removeDuplicateTuple</STRONG></A>(tuple_list) 
+<DD><TT>Remove&nbsp;redundancy,&nbsp;0,75&nbsp;(0.75&nbsp;is&nbsp;an&nbsp;acceptable&nbsp;threshold&nbsp;get&nbsp;by&nbsp;experiments)<BR>is&nbsp;similarity&nbsp;threshold&nbsp;to&nbsp;remove&nbsp;the&nbsp;redundancy<BR>Use&nbsp;lines.copy()&nbsp;because&nbsp;we&nbsp;want&nbsp;to&nbsp;remove&nbsp;directly&nbsp;on&nbsp;lines&nbsp;variable<BR>:param:&nbsp;tuple_list:&nbsp;a&nbsp;list&nbsp;of&nbsp;lines&nbsp;as&nbsp;output&nbsp;of&nbsp;OLLIE&nbsp;but&nbsp;they&nbsp;are&nbsp;duplicated&nbsp;(list)<BR>:return:&nbsp;lines:&nbsp;a&nbsp;list&nbsp;of&nbsp;processed&nbsp;lines&nbsp;(list)</TT></DD></DL></TD></TR></TBODY></TABLE>
+<P>
+<TABLE cellSpacing=0 cellPadding=2 width="100%" summary=section border=0>
+<TBODY>
+<TR bgColor=#55aa55>
+
+<P></P>
+<P></P>
+<P></P></TABLE></P>
+<TABLE cellSpacing=0 cellPadding=2 width="100%" summary=heading border=0>
+<TBODY>
+<TR bgColor=#7799ee>
+<TD vAlign=bottom>&nbsp;<BR><FONT color=#ffffff face="helvetica, arial">&nbsp;<BR><BIG><BIG><STRONG>preprocess</STRONG></BIG></BIG></FONT></TD>
+<TD vAlign=bottom align=right><FONT color=#ffffff face="helvetica, arial"><A href="about:."></A><BR><A href="file:/home/dexter/text-mining/src/preprocess.py"></A></FONT></TD></TR></TBODY></TABLE>
+<P>
+<P>
+<TABLE cellSpacing=0 cellPadding=2 width="100%" summary=section border=0>
+<TBODY>
+<TR bgColor=#aa55cc>
+<TD vAlign=bottom colSpan=3>&nbsp;<BR><FONT color=#ffffff face="helvetica, arial"><BIG><STRONG>Modules</STRONG></BIG></FONT></TD></TR>
+<TR>
+<TD bgColor=#aa55cc><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TT></TD>
+<TD>&nbsp;</TD>
+<TD width="100%">
+<TABLE width="100%" summary=list>
+<TBODY>
+<TR>
+<TD vAlign=top width="25%"><A href="about:copy.html">copy</A><BR><A href="about:en_core_web_sm.html">en_core_web_sm</A><BR><A href="about:glob.html">glob</A><BR></TD>
+<TD vAlign=top width="25%"><A href="about:itertools.html">itertools</A><BR><A href="about:nltk.html">nltk</A><BR><A href="about:numpy.html">numpy</A><BR></TD>
+<TD vAlign=top width="25%"><A href="about:os.html">os</A><BR><A href="about:pandas.html">pandas</A><BR><A href="about:pickle.html">pickle</A><BR></TD>
+<TD vAlign=top width="25%"><A href="about:spacy.html">spacy</A><BR></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE>
+<P>
+<TABLE cellSpacing=0 cellPadding=2 width="100%" summary=section border=0>
+<TBODY>
+<TR bgColor=#eeaa77>
+<TD vAlign=bottom colSpan=3>&nbsp;<BR><FONT color=#ffffff face="helvetica, arial"><BIG><STRONG>Functions</STRONG></BIG></FONT></TD></TR>
+<TR>
+<TD bgColor=#eeaa77><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TT></TD>
+<TD>&nbsp;</TD>
+<TD width="100%">
+<DL>
+<DT><A name=-countDocuments><STRONG>countDocuments</STRONG></A>(arts_nums, data) 
+<DD><TT>Count&nbsp;the&nbsp;number&nbsp;of&nbsp;documents&nbsp;by&nbsp;three&nbsp;year&nbsp;groups:&nbsp;2015,&nbsp;2016&nbsp;and&nbsp;2017&nbsp;+&nbsp;2018<BR>:param:&nbsp;arts_nums:&nbsp;The&nbsp;number&nbsp;of&nbsp;articles&nbsp;in&nbsp;dataset&nbsp;(int)<BR>:param:&nbsp;data:&nbsp;Input&nbsp;dataset&nbsp;in&nbsp;dataframe&nbsp;format&nbsp;(dataframe)<BR>:return:&nbsp;data_cnt:&nbsp;Numbers&nbsp;of&nbsp;articles&nbsp;for&nbsp;3&nbsp;years&nbsp;(list)</TT></DD></DL>
+<DL>
+<DT><A name=-getToken><STRONG>getToken</STRONG></A>(dataset, data_cnt, year_index) 
+<DD><TT>Get&nbsp;tokens&nbsp;from&nbsp;documents&nbsp;of&nbsp;one&nbsp;year<BR>:param:&nbsp;dataset:&nbsp;Input&nbsp;dataset&nbsp;in&nbsp;dataframe&nbsp;format&nbsp;for&nbsp;just&nbsp;one&nbsp;year&nbsp;(dataframe)<BR>:param:&nbsp;data_cnt:&nbsp;Numbers&nbsp;of&nbsp;articles&nbsp;for&nbsp;just&nbsp;one&nbsp;year&nbsp;(int)<BR>:param:&nbsp;year_index:&nbsp;The&nbsp;year&nbsp;of&nbsp;articles.&nbsp;E.g.&nbsp;2015,&nbsp;2016&nbsp;or&nbsp;2017&nbsp;(int)<BR>:return:&nbsp;vocabulary:&nbsp;The&nbsp;output&nbsp;tokens,&nbsp;entries&nbsp;are&nbsp;unique&nbsp;(list)<BR>:return:&nbsp;prep_list:&nbsp;The&nbsp;output&nbsp;tokens,&nbsp;entries&nbsp;are&nbsp;not&nbsp;unique&nbsp;(list)</TT></DD></DL>
+<DL>
+<DT><A name=-preprocess><STRONG>preprocess</STRONG></A>(text) 
+<DD><TT>Preprocess&nbsp;raw&nbsp;text&nbsp;to&nbsp;get&nbsp;tokens<BR>:param:&nbsp;text:&nbsp;Input&nbsp;text&nbsp;(string)<BR>:return:&nbsp;vocab_entries:&nbsp;Output&nbsp;vocabulary&nbsp;(filter)</TT></DD></DL>
+<DL>
+<DT><A name=-separateDataSet><STRONG>separateDataSet</STRONG></A>(data_cnt, data) 
+<DD><TT>Separate&nbsp;dataset&nbsp;by&nbsp;three&nbsp;year&nbsp;groups:&nbsp;2015,&nbsp;2016&nbsp;and&nbsp;2017&nbsp;+&nbsp;2018<BR>:param:&nbsp;data_cnt:&nbsp;Numbers&nbsp;of&nbsp;articles&nbsp;for&nbsp;3&nbsp;years&nbsp;(list)<BR>:param:&nbsp;data:&nbsp;Input&nbsp;dataset&nbsp;in&nbsp;dataframe&nbsp;format&nbsp;(dataframe)<BR>:return:&nbsp;data_list:&nbsp;Three&nbsp;sets&nbsp;of&nbsp;articles&nbsp;for&nbsp;3&nbsp;years&nbsp;(list)</TT></DD></DL></TD></TR></TBODY></TABLE>
+<P>
+<TABLE cellSpacing=0 cellPadding=2 width="100%" summary=section border=0>
+<TBODY>
+<TR bgColor=#55aa55>
+
+<P></P>
+<P></P>
+<P></P></TABLE></P>
+<TABLE cellSpacing=0 cellPadding=2 width="100%" summary=heading border=0>
+<TBODY>
+<TR bgColor=#7799ee>
+<TD vAlign=bottom>&nbsp;<BR><FONT color=#ffffff face="helvetica, arial">&nbsp;<BR><BIG><BIG><STRONG>progress_bar</STRONG></BIG></BIG></FONT></TD>
+<TD vAlign=bottom align=right><FONT color=#ffffff face="helvetica, arial"><A href="about:."></A><BR><A href="file:/home/dexter/text-mining/src/progress_bar.py"></A></FONT></TD></TR></TBODY></TABLE>
+<P>
+<P>
+<TABLE cellSpacing=0 cellPadding=2 width="100%" summary=section border=0>
+<TBODY>
+<TR bgColor=#eeaa77>
+<TD vAlign=bottom colSpan=3>&nbsp;<BR><FONT color=#ffffff face="helvetica, arial"><BIG><STRONG>Functions</STRONG></BIG></FONT></TD></TR>
+<TR>
+<TD bgColor=#eeaa77><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TT></TD>
+<TD>&nbsp;</TD>
+<TD width="100%">
+<DL>
+<DT><A name=-printProgressBar><STRONG>printProgressBar</STRONG></A>(iteration, total, prefix='', suffix='', decimals=1, length=100, fill='¦') 
+<DD><TT>Call&nbsp;in&nbsp;a&nbsp;loop&nbsp;to&nbsp;create&nbsp;terminal&nbsp;progress&nbsp;bar<BR>@params:<BR>&nbsp;&nbsp;&nbsp;&nbsp;iteration&nbsp;&nbsp;&nbsp;-&nbsp;Required&nbsp;&nbsp;:&nbsp;current&nbsp;iteration&nbsp;(Int)<BR>&nbsp;&nbsp;&nbsp;&nbsp;total&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;Required&nbsp;&nbsp;:&nbsp;total&nbsp;iterations&nbsp;(Int)<BR>&nbsp;&nbsp;&nbsp;&nbsp;prefix&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;Optional&nbsp;&nbsp;:&nbsp;prefix&nbsp;string&nbsp;(Str)<BR>&nbsp;&nbsp;&nbsp;&nbsp;suffix&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;Optional&nbsp;&nbsp;:&nbsp;suffix&nbsp;string&nbsp;(Str)<BR>&nbsp;&nbsp;&nbsp;&nbsp;decimals&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;Optional&nbsp;&nbsp;:&nbsp;positive&nbsp;number&nbsp;of&nbsp;decimals&nbsp;in&nbsp;percent&nbsp;complete&nbsp;(Int)<BR>&nbsp;&nbsp;&nbsp;&nbsp;length&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;Optional&nbsp;&nbsp;:&nbsp;character&nbsp;length&nbsp;of&nbsp;bar&nbsp;(Int)<BR>&nbsp;&nbsp;&nbsp;&nbsp;fill&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;Optional&nbsp;&nbsp;:&nbsp;bar&nbsp;fill&nbsp;character&nbsp;(Str)</TT></DD></DL></TD></TR></TBODY></TABLE></P>
+<TABLE cellSpacing=0 cellPadding=2 width="100%" summary=heading border=0>
+<TBODY>
+<TR bgColor=#7799ee>
+<TD vAlign=bottom>&nbsp;<BR><FONT color=#ffffff face="helvetica, arial">&nbsp;<BR><BIG><BIG><STRONG>read_data</STRONG></BIG></BIG></FONT></TD>
+<TD vAlign=bottom align=right><FONT color=#ffffff face="helvetica, arial"><A href="about:."></A><BR><A href="file:/home/dexter/text-mining/src/read_data.py"></A></FONT></TD></TR></TBODY></TABLE>
+<P>
+<P>
+<TABLE cellSpacing=0 cellPadding=2 width="100%" summary=section border=0>
+<TBODY>
+<TR bgColor=#aa55cc>
+<TD vAlign=bottom colSpan=3>&nbsp;<BR><FONT color=#ffffff face="helvetica, arial"><BIG><STRONG>Modules</STRONG></BIG></FONT></TD></TR>
+<TR>
+<TD bgColor=#aa55cc><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TT></TD>
+<TD>&nbsp;</TD>
+<TD width="100%">
+<TABLE width="100%" summary=list>
+<TBODY>
+<TR>
+<TD vAlign=top width="25%"><A href="about:en_core_web_sm.html">en_core_web_sm</A><BR><A href="about:glob.html">glob</A><BR></TD>
+<TD vAlign=top width="25%"><A href="about:json.html">json</A><BR><A href="about:os.html">os</A><BR></TD>
+<TD vAlign=top width="25%"><A href="about:pandas.html">pandas</A><BR><A href="about:pickle.html">pickle</A><BR></TD>
+<TD vAlign=top width="25%"><A href="about:spacy.html">spacy</A><BR></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE>
+<P>
+<TABLE cellSpacing=0 cellPadding=2 width="100%" summary=section border=0>
+<TBODY>
+<TR bgColor=#eeaa77>
+<TD vAlign=bottom colSpan=3>&nbsp;<BR><FONT color=#ffffff face="helvetica, arial"><BIG><STRONG>Functions</STRONG></BIG></FONT></TD></TR>
+<TR>
+<TD bgColor=#eeaa77><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TT></TD>
+<TD>&nbsp;</TD>
+<TD width="100%">
+<DL>
+<DT><A name=-getArticleBodyByIndex><STRONG>getArticleBodyByIndex</STRONG></A>(index_list, dataset) 
+<DD><TT>Retrieves&nbsp;body&nbsp;of&nbsp;articles&nbsp;referenced&nbsp;by&nbsp;index<BR>:param:<BR>index_list:&nbsp;indices&nbsp;corresponding&nbsp;to&nbsp;articles&nbsp;in&nbsp;dataset&nbsp;(list&nbsp;of&nbsp;integers)<BR>dataset:&nbsp;the&nbsp;raw&nbsp;data&nbsp;which&nbsp;was&nbsp;the&nbsp;foundation&nbsp;of&nbsp;preprocessing,&nbsp;term&nbsp;weighting&nbsp;and&nbsp;clustering&nbsp;(table)<BR>:return:&nbsp;articles:&nbsp;the&nbsp;article&nbsp;texts&nbsp;(array&nbsp;of&nbsp;sets&nbsp;of&nbsp;strings)</TT></DD></DL>
+<DL>
+<DT><A name=-getArticleDatesByIndex><STRONG>getArticleDatesByIndex</STRONG></A>(index_list, dataset) 
+<DD><TT>Retrieves&nbsp;dates&nbsp;of&nbsp;articles&nbsp;referenced&nbsp;by&nbsp;index<BR>:param:<BR>index_list:&nbsp;indices&nbsp;corresponding&nbsp;to&nbsp;articles&nbsp;in&nbsp;dataset&nbsp;(list&nbsp;of&nbsp;integers)<BR>dataset:&nbsp;the&nbsp;raw&nbsp;data&nbsp;which&nbsp;was&nbsp;the&nbsp;foundation&nbsp;of&nbsp;preprocessing,&nbsp;term&nbsp;weighting&nbsp;and&nbsp;clustering&nbsp;(table)<BR>:return:&nbsp;datess:&nbsp;the&nbsp;dates&nbsp;of&nbsp;articles&nbsp;(array&nbsp;of&nbsp;sets&nbsp;of&nbsp;strings)</TT></DD></DL>
+<DL>
+<DT><A name=-getArticleDescriptionsByIndex><STRONG>getArticleDescriptionsByIndex</STRONG></A>(index_list, dataset) 
+<DD><TT>Retrieves&nbsp;descriptions&nbsp;of&nbsp;articles&nbsp;referenced&nbsp;by&nbsp;index<BR>:param:<BR>index_list:&nbsp;indices&nbsp;corresponding&nbsp;to&nbsp;articles&nbsp;in&nbsp;dataset&nbsp;(list&nbsp;of&nbsp;integers)<BR>dataset:&nbsp;the&nbsp;raw&nbsp;data&nbsp;which&nbsp;was&nbsp;the&nbsp;foundation&nbsp;of&nbsp;preprocessing,&nbsp;term&nbsp;weighting&nbsp;and&nbsp;clustering&nbsp;(table)<BR>:return:&nbsp;descriptions:&nbsp;the&nbsp;descriptions&nbsp;of&nbsp;articles&nbsp;(array&nbsp;of&nbsp;sets&nbsp;of&nbsp;strings)</TT></DD></DL>
+<DL>
+<DT><A name=-getArticleHeadingsByIndex><STRONG>getArticleHeadingsByIndex</STRONG></A>(index_list, dataset) 
+<DD><TT>Retrieves&nbsp;titles&nbsp;of&nbsp;articles&nbsp;referenced&nbsp;by&nbsp;index<BR>:param:<BR>index_list:&nbsp;indices&nbsp;corresponding&nbsp;to&nbsp;articles&nbsp;in&nbsp;dataset&nbsp;(list&nbsp;of&nbsp;integers)<BR>dataset&nbsp;(table):&nbsp;the&nbsp;raw&nbsp;data&nbsp;which&nbsp;was&nbsp;the&nbsp;foundation&nbsp;of&nbsp;preprocessing,&nbsp;term&nbsp;weighting&nbsp;and&nbsp;clustering<BR>:return:&nbsp;the&nbsp;titles&nbsp;of&nbsp;articles&nbsp;grouped&nbsp;into&nbsp;the&nbsp;cluster&nbsp;in&nbsp;which&nbsp;the&nbsp;articles&nbsp;belong,<BR>type:&nbsp;array&nbsp;of&nbsp;sets&nbsp;of&nbsp;strings</TT></DD></DL>
+<DL>
+<DT><A name=-readData><STRONG>readData</STRONG></A>(path) 
+<DD><TT>Read&nbsp;json&nbsp;data&nbsp;files<BR>:param:&nbsp;path:&nbsp;The&nbsp;relative&nbsp;path&nbsp;to&nbsp;the&nbsp;input&nbsp;dataset&nbsp;directory&nbsp;(string)<BR>:return:&nbsp;docs_num:&nbsp;The&nbsp;number&nbsp;of&nbsp;data&nbsp;files&nbsp;in&nbsp;dataset&nbsp;(int)<BR>:return:&nbsp;arts_nums:&nbsp;The&nbsp;number&nbsp;of&nbsp;articles&nbsp;in&nbsp;dataset&nbsp;(int)<BR>:return:&nbsp;df:&nbsp;The&nbsp;dataset&nbsp;in&nbsp;dataframe&nbsp;format&nbsp;(dataframe)</TT></DD></DL>
+<DL>
+<DT><A name=-sortArticlesByIndex><STRONG>sortArticlesByIndex</STRONG></A>(index_list, dataset) 
+<DD><TT>Sorts&nbsp;index_list&nbsp;by&nbsp;article&nbsp;date<BR>:param:<BR>index_list:&nbsp;indices&nbsp;corresponding&nbsp;to&nbsp;articles&nbsp;in&nbsp;dataset&nbsp;(list&nbsp;of&nbsp;integers)<BR>dataset:&nbsp;the&nbsp;raw&nbsp;data&nbsp;which&nbsp;was&nbsp;the&nbsp;foundation&nbsp;of&nbsp;preprocessing,&nbsp;term&nbsp;weighting&nbsp;and&nbsp;clustering&nbsp;(table)<BR>:return:&nbsp;sort:&nbsp;sorted&nbsp;index_list&nbsp;(list)</TT></DD></DL></TD></TR></TBODY></TABLE>
+<P>
+<TABLE cellSpacing=0 cellPadding=2 width="100%" summary=section border=0>
+<TBODY>
+<TR bgColor=#55aa55>
+
+<P></P>
+<P></P>
+<P></P></TABLE></P>
+<TABLE cellSpacing=0 cellPadding=2 width="100%" summary=heading border=0>
+<TBODY>
+<TR bgColor=#7799ee>
+<TD vAlign=bottom>&nbsp;<BR><FONT color=#ffffff face="helvetica, arial">&nbsp;<BR><BIG><BIG><STRONG>similarity</STRONG></BIG></BIG></FONT></TD>
+<TD vAlign=bottom align=right><FONT color=#ffffff face="helvetica, arial"><A href="about:."></A><BR><A href="file:/home/dexter/text-mining/src/similarity.py"></A></FONT></TD></TR></TBODY></TABLE>
+<P></P>
+<P>
+<TABLE cellSpacing=0 cellPadding=2 width="100%" summary=section border=0>
+<TBODY>
+<TR bgColor=#aa55cc>
+<TD vAlign=bottom colSpan=3>&nbsp;<BR><FONT color=#ffffff face="helvetica, arial"><BIG><STRONG>Modules</STRONG></BIG></FONT></TD></TR>
+<TR>
+<TD bgColor=#aa55cc><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TT></TD>
+<TD>&nbsp;</TD>
+<TD width="100%">
+<TABLE width="100%" summary=list>
+<TBODY>
+<TR>
+<TD vAlign=top width="25%"><A href="about:gensim.corpora.html">gensim.corpora</A><BR></TD>
+<TD vAlign=top width="25%"><A href="about:gensim.models.html">gensim.models</A><BR></TD>
+<TD vAlign=top width="25%"><A href="about:pandas.html">pandas</A><BR></TD>
+<TD vAlign=top width="25%"><A href="about:gensim.similarities.html">gensim.similarities</A><BR></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE>
+<P>
+<TABLE cellSpacing=0 cellPadding=2 width="100%" summary=section border=0>
+<TBODY>
+<TR bgColor=#eeaa77>
+<TD vAlign=bottom colSpan=3>&nbsp;<BR><FONT color=#ffffff face="helvetica, arial"><BIG><STRONG>Functions</STRONG></BIG></FONT></TD></TR>
+<TR>
+<TD bgColor=#eeaa77><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TT></TD>
+<TD>&nbsp;</TD>
+<TD width="100%">
+<DL>
+<DT><A name=-getSimilarDocuments><STRONG>getSimilarDocuments</STRONG></A>(prep_list, query, num_topics, num_docs) 
+<DD><TT>Obtain&nbsp;num_docs&nbsp;documents&nbsp;similar&nbsp;to&nbsp;query<BR>:param:<BR>prep_list:&nbsp;preprocessed&nbsp;document&nbsp;(list&nbsp;of&nbsp;strings)<BR>query:&nbsp;cluster&nbsp;description&nbsp;(string),<BR>num_topics:&nbsp;number&nbsp;of&nbsp;clusters&nbsp;in&nbsp;document&nbsp;collection&nbsp;(integer)<BR>num_docs:&nbsp;desired&nbsp;number&nbsp;of&nbsp;documents&nbsp;to&nbsp;return&nbsp;(integer)<BR>:return:<BR>sims:&nbsp;indices&nbsp;of&nbsp;documents&nbsp;similar&nbsp;to&nbsp;query&nbsp;(list&nbsp;of&nbsp;integers)</TT></DD></DL>
+<DL>
+<DT><A name=-getStringSimilarityDegree><STRONG>getStringSimilarityDegree</STRONG></A>(str1, str2) 
+<DD><TT>Retrieves&nbsp;the&nbsp;similarity&nbsp;degree&nbsp;of&nbsp;two&nbsp;string<BR>:param:<BR>str1:&nbsp;first&nbsp;string&nbsp;input&nbsp;(string)<BR>str2:&nbsp;second&nbsp;string&nbsp;input&nbsp;(string)<BR>:return:&nbsp;similarity:&nbsp;similarity&nbsp;degree&nbsp;of&nbsp;two&nbsp;strings&nbsp;(float)</TT></DD></DL></TD></TR></TBODY></TABLE></P>
+<TABLE cellSpacing=0 cellPadding=2 width="100%" summary=heading border=0>
+<TBODY>
+<TR bgColor=#7799ee>
+<TD vAlign=bottom>&nbsp;<BR><FONT color=#ffffff face="helvetica, arial">&nbsp;<BR><BIG><BIG><STRONG>term_weighting</STRONG></BIG></BIG></FONT></TD>
+<TD vAlign=bottom align=right><FONT color=#ffffff face="helvetica, arial"><A href="about:."></A><BR><A href="file:/home/dexter/text-mining/src/term_weighting.py"></A></FONT></TD></TR></TBODY></TABLE>
+<P></P>
+<P>
+<TABLE cellSpacing=0 cellPadding=2 width="100%" summary=section border=0>
+<TBODY>
+<TR bgColor=#eeaa77>
+<TD vAlign=bottom colSpan=3>&nbsp;<BR><FONT color=#ffffff face="helvetica, arial"><BIG><STRONG>Functions</STRONG></BIG></FONT></TD></TR>
+<TR>
+<TD bgColor=#eeaa77><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TT></TD>
+<TD>&nbsp;</TD>
+<TD width="100%">
+<DL>
+<DT><A name=-dimensionality_reduction_LSA><STRONG>dimensionality_reduction_LSA</STRONG></A>(tf_idf, n_components) 
+<DD><TT>Use&nbsp;LSA&nbsp;for&nbsp;dimensionality&nbsp;reduction<BR>:param:&nbsp;tf_idf:&nbsp;tf_idf&nbsp;matrix,&nbsp;n_components:&nbsp;desired&nbsp;number&nbsp;of&nbsp;features&nbsp;(int)<BR>:return:&nbsp;selected:&nbsp;tf_idf&nbsp;matrix&nbsp;with&nbsp;lesser&nbsp;dimension</TT></DD></DL>
+<DL>
+<DT><A name=-feature_selection_variance><STRONG>feature_selection_variance</STRONG></A>(occ_mtx, p) 
+<DD><TT>Use&nbsp;variance&nbsp;threshold&nbsp;for&nbsp;feature&nbsp;selection<BR>:param:<BR>occ_mtx:&nbsp;feature&nbsp;matrix&nbsp;based&nbsp;on&nbsp;occurrence&nbsp;count&nbsp;(np&nbsp;array)<BR>p:&nbsp;probability&nbsp;threshhold&nbsp;(integer&nbsp;in&nbsp;[0,1])<BR>:return:&nbsp;selected:&nbsp;occurrence&nbsp;matrix&nbsp;with&nbsp;lesser&nbsp;dimension&nbsp;(np&nbsp;array)</TT></DD></DL>
+<DL>
+<DT><A name=-getOccurrenceMatrix><STRONG>getOccurrenceMatrix</STRONG></A>(preprocessed_list) 
+<DD><TT>Create&nbsp;the&nbsp;occurrence&nbsp;matrix<BR>:param:<BR>preprocessed_list:&nbsp;preprocessed&nbsp;documents&nbsp;(list&nbsp;of&nbsp;strings)<BR>:return:&nbsp;occ_mtx:&nbsp;matrix&nbsp;based&nbsp;occurrence&nbsp;count&nbsp;per&nbsp;document&nbsp;(np&nbsp;array)</TT></DD></DL>
+<DL>
+<DT><A name=-get_selected_vocab><STRONG>get_selected_vocab</STRONG></A>(selected, occ_mtx, vocabulary) 
+<DD><TT>Returns&nbsp;a&nbsp;list&nbsp;of&nbsp;the&nbsp;selected&nbsp;vocabulary&nbsp;after&nbsp;feature&nbsp;selection<BR>:param:<BR>selected:&nbsp;occurrence&nbsp;matrix&nbsp;with&nbsp;lesser&nbsp;dimension&nbsp;(np&nbsp;array)<BR>occ_mtx:&nbsp;original&nbsp;occurrence&nbsp;matrix&nbsp;(np&nbsp;array)<BR>vocabulary:&nbsp;vocabulary&nbsp;(list)<BR>:return:&nbsp;selected&nbsp;voc:&nbsp;selected&nbsp;vocabulary&nbsp;(list&nbsp;of&nbsp;strings)</TT></DD></DL>
+<DL>
+<DT><A name=-tf_idf><STRONG>tf_idf</STRONG></A>(occ_mtx) 
+<DD><TT>Calculated&nbsp;term&nbsp;weight&nbsp;by&nbsp;tf_idf&nbsp;model<BR>:param:&nbsp;occ_mtx:&nbsp;matrix&nbsp;based&nbsp;on&nbsp;occurrence&nbsp;count&nbsp;(np&nbsp;array)<BR>:return:&nbsp;tf_idf:&nbsp;matrix&nbsp;of&nbsp;tf_idf&nbsp;values&nbsp;(scipy&nbsp;sparse&nbsp;matrix)</TT></DD></DL>
+<DL>
+<DT><A name=-tf_idf_select><STRONG>tf_idf_select</STRONG></A>(preprocessed_list, min_df) 
+<DD><TT>Calculated&nbsp;term&nbsp;weight&nbsp;by&nbsp;tf_idf&nbsp;model,&nbsp;feature&nbsp;selection&nbsp;by&nbsp;df<BR>:param:<BR>preprocessed_list:&nbsp;preprocessed&nbsp;documents&nbsp;(list&nbsp;of&nbsp;strings)<BR>min_df:&nbsp;document&nbsp;frequency&nbsp;threshhold&nbsp;(integer&nbsp;in&nbsp;[0,1])<BR>:return:<BR>X:&nbsp;tf_idf&nbsp;matrix&nbsp;with&nbsp;lesser&nbsp;dimension&nbsp;(scipy&nbsp;sparse&nbsp;matrix)<BR>selected:&nbsp;selected&nbsp;vocabulary&nbsp;(list&nbsp;of&nbsp;strings)</TT></DD></DL></TD></TR></TBODY></TABLE></P>
+<TABLE cellSpacing=0 cellPadding=2 width="100%" summary=heading border=0>
+<TBODY>
+<TR bgColor=#7799ee>
+<TD vAlign=bottom>&nbsp;<BR><FONT color=#ffffff face="helvetica, arial">&nbsp;<BR><BIG><BIG><STRONG>text_process</STRONG></BIG></BIG></FONT></TD>
+<TD vAlign=bottom align=right><FONT color=#ffffff face="helvetica, arial"><A href="about:."></A><BR><A href="file:/home/dexter/text-mining/src/text_process.py"></A></FONT></TD></TR></TBODY></TABLE>
+<P>
+<P>
+<TABLE cellSpacing=0 cellPadding=2 width="100%" summary=section border=0>
+<TBODY>
+<TR bgColor=#aa55cc>
+<TD vAlign=bottom colSpan=3>&nbsp;<BR><FONT color=#ffffff face="helvetica, arial"><BIG><STRONG>Modules</STRONG></BIG></FONT></TD></TR>
+<TR>
+<TD bgColor=#aa55cc><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TT></TD>
+<TD>&nbsp;</TD>
+<TD width="100%">
+<TABLE width="100%" summary=list>
+<TBODY>
+<TR>
+<TD vAlign=top width="25%"><A href="about:copy.html">copy</A><BR><A href="about:en_core_web_sm.html">en_core_web_sm</A><BR><A href="about:glob.html">glob</A><BR></TD>
+<TD vAlign=top width="25%"><A href="about:itertools.html">itertools</A><BR><A href="about:nltk.html">nltk</A><BR><A href="about:numpy.html">numpy</A><BR></TD>
+<TD vAlign=top width="25%"><A href="about:os.html">os</A><BR><A href="about:pandas.html">pandas</A><BR><A href="about:pickle.html">pickle</A><BR></TD>
+<TD vAlign=top width="25%"><A href="about:spacy.html">spacy</A><BR></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE>
+<P>
+<TABLE cellSpacing=0 cellPadding=2 width="100%" summary=section border=0>
+<TBODY>
+<TR bgColor=#eeaa77>
+<TD vAlign=bottom colSpan=3>&nbsp;<BR><FONT color=#ffffff face="helvetica, arial"><BIG><STRONG>Functions</STRONG></BIG></FONT></TD></TR>
+<TR>
+<TD bgColor=#eeaa77><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TT></TD>
+<TD>&nbsp;</TD>
+<TD width="100%">
+<DL>
+<DT><A name=-checkFileExistence><STRONG>checkFileExistence</STRONG></A>(fileList) 
+<DD><TT>Check&nbsp;file&nbsp;existence&nbsp;or&nbsp;not<BR>:param:&nbsp;fileList&nbsp;(list)<BR>:return:&nbsp;True&nbsp;if&nbsp;all&nbsp;files&nbsp;in&nbsp;list&nbsp;are&nbsp;existing,&nbsp;False&nbsp;otherwise&nbsp;(boolean)</TT></DD></DL>
+<DL>
+<DT><A name=-deleteFile><STRONG>deleteFile</STRONG></A>(filePath) 
+<DD><TT>Delete&nbsp;a&nbsp;file&nbsp;located&nbsp;in&nbsp;filePath<BR>:param:&nbsp;filePath&nbsp;(string)<BR>:return:&nbsp;None</TT></DD></DL>
+<DL>
+<DT><A name=-parseIndexFromLine><STRONG>parseIndexFromLine</STRONG></A>(line) 
+<DD><TT>Parse&nbsp;the&nbsp;article&nbsp;index&nbsp;from&nbsp;string<BR>:param:&nbsp;line:&nbsp;a&nbsp;line&nbsp;containing&nbsp;the&nbsp;index&nbsp;string&nbsp;with&nbsp;format:&nbsp;ART_IDX:index_number&nbsp;(string)<BR>:return:&nbsp;index:&nbsp;index&nbsp;of&nbsp;article&nbsp;(int)</TT></DD></DL>
+<DL>
+<DT><A name=-parseTupleFromLine><STRONG>parseTupleFromLine</STRONG></A>(line) 
+<DD><TT>Parse&nbsp;ollie&nbsp;tuple&nbsp;from&nbsp;string<BR>:param:&nbsp;line:&nbsp;a&nbsp;line&nbsp;containing&nbsp;the&nbsp;index&nbsp;string&nbsp;with&nbsp;format:&nbsp;ART_IDX:index_number&nbsp;(string)<BR>:return:&nbsp;ollie_tuple:&nbsp;a&nbsp;tuple&nbsp;containing&nbsp;entity&nbsp;i,&nbsp;relation,&nbsp;entiry&nbsp;j,&nbsp;enabler&nbsp;(tuple)</TT></DD></DL></TD></TR></TBODY></TABLE>
+<P>
+<TABLE cellSpacing=0 cellPadding=2 width="100%" summary=section border=0>
+<TBODY>
+<TR bgColor=#55aa55>
+
+<P></P>
+<P></P>
+<P></P></TABLE></P>
+<TABLE cellSpacing=0 cellPadding=2 width="100%" summary=heading border=0>
+<TBODY>
+<TR bgColor=#7799ee>
+<TD vAlign=bottom>&nbsp;<BR><FONT color=#ffffff face="helvetica, arial">&nbsp;<BR><BIG><BIG><STRONG>visualization</STRONG></BIG></BIG></FONT></TD>
+<TD vAlign=bottom align=right><FONT color=#ffffff face="helvetica, arial"><A href="about:."></A><BR><A href="file:/home/dexter/text-mining/src/visualization.py"></A></FONT></TD></TR></TBODY></TABLE>
+<P></P>
+<P>
+<TABLE cellSpacing=0 cellPadding=2 width="100%" summary=section border=0>
+<TBODY>
+<TR bgColor=#aa55cc>
+<TD vAlign=bottom colSpan=3>&nbsp;<BR><FONT color=#ffffff face="helvetica, arial"><BIG><STRONG>Modules</STRONG></BIG></FONT></TD></TR>
+<TR>
+<TD bgColor=#aa55cc><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TT></TD>
+<TD>&nbsp;</TD>
+<TD width="100%">
+<TABLE width="100%" summary=list>
+<TBODY>
+<TR>
+<TD vAlign=top width="25%"><A href="about:en_core_web_sm.html">en_core_web_sm</A><BR><A href="about:glob.html">glob</A><BR></TD>
+<TD vAlign=top width="25%"><A href="about:plotly.graph_objs.html">plotly.graph_objs</A><BR><A href="about:json.html">json</A><BR></TD>
+<TD vAlign=top width="25%"><A href="about:os.html">os</A><BR><A href="about:pandas.html">pandas</A><BR></TD>
+<TD vAlign=top width="25%"><A href="about:pickle.html">pickle</A><BR><A href="about:spacy.html">spacy</A><BR></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE>
+<P>
+<TABLE cellSpacing=0 cellPadding=2 width="100%" summary=section border=0>
+<TBODY>
+<TR bgColor=#eeaa77>
+<TD vAlign=bottom colSpan=3>&nbsp;<BR><FONT color=#ffffff face="helvetica, arial"><BIG><STRONG>Functions</STRONG></BIG></FONT></TD></TR>
+<TR>
+<TD bgColor=#eeaa77><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TT></TD>
+<TD>&nbsp;</TD>
+<TD width="100%">
+<DL>
+<DT><A name=-getComponents><STRONG>getComponents</STRONG></A>(linked) 
+<DD><TT>Obtains&nbsp;connected&nbsp;components&nbsp;of&nbsp;interdependent&nbsp;events<BR>:param:<BR>linked:&nbsp;indeces&nbsp;of&nbsp;articles&nbsp;that&nbsp;are&nbsp;linked&nbsp;(list&nbsp;of&nbsp;tuples)<BR>:return:<BR>components:&nbsp;connected&nbsp;components&nbsp;(list&nbsp;of&nbsp;list&nbsp;of&nbsp;tuples)</TT></DD></DL>
+<DL>
+<DT><A name=-get_independent><STRONG>get_independent</STRONG></A>(linked, similar_events) 
+<DD><TT>Obtains&nbsp;the&nbsp;idices&nbsp;of&nbsp;parameters&nbsp;that&nbsp;are&nbsp;indipendent<BR>:param:<BR>linked:&nbsp;indeces&nbsp;of&nbsp;articles&nbsp;that&nbsp;are&nbsp;linked&nbsp;(list&nbsp;of&nbsp;tuples)<BR>similar_events:&nbsp;idices&nbsp;of&nbsp;events&nbsp;that&nbsp;are&nbsp;similar&nbsp;to&nbsp;the&nbsp;issue&nbsp;description&nbsp;(list)<BR>:return:<BR>independent:&nbsp;independent&nbsp;components&nbsp;(list&nbsp;of&nbsp;tuples&nbsp;of&nbsp;one&nbsp;element)</TT></DD></DL>
+<DL>
+<DT><A name=-mergeComponents><STRONG>mergeComponents</STRONG></A>(i, j, components) 
+<DD><TT>Merges&nbsp;two&nbsp;components&nbsp;at&nbsp;given&nbsp;indices&nbsp;in&nbsp;component&nbsp;list<BR>:param:<BR>i,&nbsp;j:&nbsp;component&nbsp;indices&nbsp;to&nbsp;merge&nbsp;(integers)<BR>components:&nbsp;list&nbsp;of&nbsp;componends&nbsp;(list&nbsp;of&nbsp;list&nbsp;of&nbsp;tuples)<BR>:return:<BR>new_comp:&nbsp;new&nbsp;component&nbsp;obtained&nbsp;by&nbsp;merging&nbsp;components&nbsp;i,&nbsp;j&nbsp;(list&nbsp;of&nbsp;tuples)</TT></DD></DL>
+<DL>
+<DT><A name=-visualizeInterDependency><STRONG>visualizeInterDependency</STRONG></A>(linked, dataset, similar_events, issue_descr) 
+<DD><TT>&nbsp;&nbsp;&nbsp;&nbsp;Vizualizes&nbsp;the&nbsp;interdependency&nbsp;of&nbsp;dependent&nbsp;and&nbsp;interdependent&nbsp;articles&nbsp;in&nbsp;html&nbsp;file<BR>&nbsp;&nbsp;&nbsp;&nbsp;:param:<BR>&nbsp;&nbsp;&nbsp;&nbsp;linked:&nbsp;indeces&nbsp;of&nbsp;articles&nbsp;that&nbsp;are&nbsp;linked&nbsp;(list&nbsp;of&nbsp;tuples)<BR>&nbsp;&nbsp;&nbsp;&nbsp;dataset&nbsp;(table)<BR>&nbsp;&nbsp;&nbsp;&nbsp;similar_events:&nbsp;idices&nbsp;of&nbsp;events&nbsp;that&nbsp;are&nbsp;similar&nbsp;to&nbsp;the&nbsp;issue&nbsp;description&nbsp;(list)<BR>`&nbsp;&nbsp;&nbsp;issue&nbsp;descr:&nbsp;description&nbsp;of&nbsp;an&nbsp;issue&nbsp;from&nbsp;description.txt&nbsp;(string)<BR>&nbsp;&nbsp;&nbsp;&nbsp;:return:<BR>&nbsp;&nbsp;&nbsp;&nbsp;None</TT></DD></DL></TD></TR></TBODY></TABLE>
+<P>
+<TABLE cellSpacing=0 cellPadding=2 width="100%" summary=section border=0>
+<TBODY>
+<TR bgColor=#55aa55>
+
+<P></P></P></BODY></HTML>

@@ -1,0 +1,39 @@
+\section{Evaluation}
+
+\subsection{Getting Documents}
+As we used Cosine Similarity to obtain the related articles for an issue, we measured the precision of this technique.
+
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}
+	\begin{scope}[scale=0.4]
+	\pie[pos = {0,16}, color = {blue!20, orange!20}]{4/not related, 96/related}
+	\end{scope}
+	\begin{scope}[scale=0.4]
+	\pie[pos = {0,8}, color = {blue!20, orange!20}]{0/not related, 100/related}
+	\end{scope}
+	\begin{scope}[scale=0.4]
+	\pie[color = {blue!20, orange!20}]{60/not related, 40/related}
+	\end{scope}
+\end{tikzpicture}
+\caption{Precision of North Korea (top), President Park (middle), MERS (bottom) issues}
+\end{figure}
+
+The precision for the impeachment of president Park is very high, since every obtained article is related to the issue. The model gets confused about MERS because many articles that were retrieved were about bird flu, Zika or other diseases instead of MERS. The two articles that were confused about North Korea were about Japan, but mention North Korea in the article.
+
+\subsection{Clustering}
+For our needs k-means++ is a good choice because it is fast and efficient in terms of computational cost. Further k-means++ clusters every article to exactly one cluster, while LDA for example clusters each article to several topics. Because we have a look at the article headings to create the descriptions it would be horrible to have an article with a heading about a completely other topic in an cluster, only because it shares some features with the other cluster articles. That would happen if we would have chosen LDA. However, we chose k-means++ and the reason for that is exactly the hard clustering, every article can only be in one cluster. Which compares better to the fact that we only have a look at the article headings to create the issue descriptions.\\
+We tried to evaluate our clustering with the Dunn-index, however because we have some clusters with many articles which we are not considering, the resulting Dunn-index would not reflect the quality well enough. In addition we compared the sum of the squared distances of the articles to their closest cluster center for every k with k-1 and k+1. For k to number of articles, this sum gets smaller, but if one has a closer look and picks a small enough interval, one can observe that their exist some local maxima and minima. Such a local minima exists for k equals 149 and that is the reason why we chose 149 over k's close to 149.
+
+\subsection{Dependence Tracking}
+We also measured the precision of the Dependence tracking. The result was quite disappointing because the precision was below 0.5.
+
+\begin{figure}[h]
+\begin{tikzpicture}
+	\begin{scope}[scale=0.5]
+	\pie[color = {blue!20, orange!20}]{68/not linked, 32/linked}
+	\end{scope}
+\end{tikzpicture}
+\caption{Precision of Dependence Tracking (Impeachment of President Park)}
+\end{figure}
+The evaluation was done by reading the article heading and description of the articles to validate if the articles are linked or not. However, this is our only possible way to get as close to the ground truth as we can because we can't read all of the articles to find out if they are really connected.

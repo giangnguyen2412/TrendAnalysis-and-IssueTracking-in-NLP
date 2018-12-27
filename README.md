@@ -51,4 +51,5 @@ Read the requirement.txt for details
 
 ## License
 
+This project is licensed under the MIT License
 

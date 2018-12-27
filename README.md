@@ -22,38 +22,32 @@ Please make sure that you already have the dataset files under data directory be
 1. Install the Python package requirements using command
     pip install -r requirement.txt
 ```
-    OLLIE is a JAVA package which need to be placed with the same src directory. OLLIE could be found here: https://knowitall.github.io/ollie/
+OLLIE is a JAVA package which need to be placed with the same src directory. OLLIE could be found here: https://knowitall.github.io/ollie/
 ```
 2. Run the programs
 ```
-    Move to src directory
-    Trend Analysis: run the code using command
-    python trend_analysis.py
-    When you are done, the result is in src/top_ten.txt. Looking at the file, you can see each 10 issues per year.
-    Issue tracking: run the code using command
-    python issue_tracking.py 
-    When the program is running, you can save the plots for each topic before continuing with the next topic. 
-    The plot could be seen in src/temp-plot.html
+Move to src directory
+Trend Analysis: run the code using command
+python trend_analysis.py
+When you are done, the result is in src/top_ten.txt. Looking at the file, you can see each 10 issues per year.
+Issue tracking: run the code using command
+python issue_tracking.py 
+When the program is running, you can save the plots for each topic before continuing with the next topic. 
+The plot could be seen in src/temp-plot.html
 ```
 ``` 
 The programs ask you to use available parameters to speed up or not (See Speed Booster in report for details). By accepting,
 you will you the paramters from the previous run. Otherwise, you will run as normal and It will take longer time.
 ```
-### Prerequisites
+## Prerequisites
 
 Read the requirement.txt for details
-
-## Source code management
-
-We use [Github](https://github.com/lydl28/text-mining) for source management.
 
 ## Authors
 
 * Giang. Nguyen
 * Kalkbrenner Lydia
 * Oberwegner Phillip
-
-(https://github.com/lydl28/text-mining/graphs/contributors) who participated in this project.
 
 ## License
 

@@ -17,7 +17,6 @@ For each event, their outstanding attributes need to be extracted
 Identify two different types of events: inter-dependent and independent
 ```
 ## Getting Started
-
 Please make sure that you already have the dataset files under data directory before running the code.
 1. Install the Python package requirements using command
     pip install -r requirement.txt
@@ -40,16 +39,13 @@ The programs ask you to use available parameters to speed up or not (See Speed B
 you will you the paramters from the previous run. Otherwise, you will run as normal and It will take longer time.
 ```
 ## Prerequisites
-
 Read the requirement.txt for details
 
 ## Authors
-
 * Giang. Nguyen
 * Kalkbrenner Lydia
 * Oberwegner Phillip
 
 ## License
-
-This project is licensed under the MIT License
+This project is licensed under the MIT License - see the LICENSE.md file for details
 

@@ -39,7 +39,7 @@ The programs ask you to use available parameters to speed up or not (See Speed B
 you will you the paramters from the previous run. Otherwise, you will run as normal and It will take longer time.
 ```
 ## Prerequisites
-Read the requirement.txt for details
+Refer the requirement.txt for details
 
 ## Authors
 * Giang. Nguyen
